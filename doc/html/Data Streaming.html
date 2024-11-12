@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="Apache Flume_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Apache Flume_files/libs/quarto-html/tabby.min.js"></script>
-<script src="Apache Flume_files/libs/quarto-html/popper.min.js"></script>
-<script src="Apache Flume_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="Apache Flume_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Apache Flume_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="Apache Flume_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="Apache Flume_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="Data Streaming_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Data Streaming_files/libs/quarto-html/tabby.min.js"></script>
+<script src="Data Streaming_files/libs/quarto-html/popper.min.js"></script>
+<script src="Data Streaming_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="Data Streaming_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Data Streaming_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="Data Streaming_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="Data Streaming_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Data Streaming_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="Data Streaming_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="Data Streaming_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Salvo Nicotra">
-  <title>Apache Flume</title>
+  <title>Data Streaming</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="Apache Flume_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="Apache Flume_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="Data Streaming_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="Data Streaming_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,80 +32,15 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="Apache Flume_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="Data Streaming_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="style.css">
-  <link href="Apache Flume_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="Apache Flume_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="Apache Flume_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="Apache Flume_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="Apache Flume_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="Apache Flume_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="Data Streaming_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="Data Streaming_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="Data Streaming_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="Data Streaming_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="Data Streaming_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="Data Streaming_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -396,7 +334,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Apache Flume</h1>
+  <h1 class="title">Data Streaming</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -411,285 +349,430 @@ Salvo Nicotra
 
 </section>
 <section>
-<section id="apache-flume" class="title-slide slide level1 center">
-<h1>Apache Flume</h1>
+<section id="data-streaming" class="title-slide slide level1 center" data-background-color="white" data-background-image="images/stream-data.png" data-background-size="50%" data-background-opacity="1">
+<h1>Data Streaming</h1>
 
-<img data-src="https://flume.apache.org/_static/flume-logo.png" class="r-stretch"></section>
-<section id="what-is-apache-flume" class="slide level2">
-<h2>What is Apache Flume ?</h2>
+</section>
+<section id="a-bit-of-history" class="slide level2">
+<h2>A bit of history</h2>
 <div class="columns">
 <div class="fragment column" style="width:50%;">
-<p>Apache Flume is a</p>
+<p><img data-src="https://i.imgflip.com/54ff5r.jpg"> <a href="https://imgflip.com/i/54ff5r">NicsMeme</a></p>
+</div><div class="fragment column" style="width:50%;">
+<p><img data-src="https://i.imgflip.com/54ffdn.jpg"> <a href="https://imgflip.com/i/54ffdn">NicsMeme</a></p>
+</div></div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="message-oriented-middleware-mom" class="title-slide slide level1 center">
+<h1>Message-oriented middleware (MOM)</h1>
+<p><a href="https://www.researchgate.net/publication/271436605_Extending_message-oriented_middleware_using_interception" class="uri">https://www.researchgate.net/publication/271436605_Extending_message-oriented_middleware_using_interception</a></p>
+</section>
+<section id="what-is-a-mom" class="slide level2">
+<h2>What is a MOM ?</h2>
+<div class="columns">
+<div class="fragment column" style="width:50%;">
 <ul>
-<li class="fragment"><em>distributed</em>: multiple agents manage multiple sources and sinks</li>
-<li class="fragment">reliable: events are staged in the channel and delivered using a transactional approach</li>
-<li class="fragment">available: open source, mature system</li>
+<li class="fragment">Software or hardware infrastructure supporting <strong>sending</strong> and <strong>receiving</strong> messages between <em>distributed systems</em>.</li>
+<li class="fragment">MOM allows <em>application modules</em> to be distributed over <strong>heterogeneous</strong> platforms and reduces the complexity of developing applications that span multiple operating systems and network protocols.</li>
+<li class="fragment">The <strong>middleware</strong> creates a distributed communications <strong>layer</strong> that insulates the application developer from the details of the various operating systems and network interfaces.</li>
+<li class="fragment">APIs that extend across diverse platforms and networks are typically provided by MOM</li>
 </ul>
 </div><div class="fragment column" style="width:50%;">
-<p>for efficiently:</p>
-<ul>
-<li class="fragment">collecting: make them avalaible</li>
-<li class="fragment">aggregating: merge together from different sources</li>
-<li class="fragment">moving: transfer from one place to another</li>
-</ul>
-</div></div>
-<div class="fragment">
-<p>from many different sources: refered both type of data and different place to a centralized data store</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/mom-async.PNG"></p>
+<figcaption>MOM async</figcaption>
+</figure>
 </div>
-</section>
-<section id="flume-usage" class="slide level2">
-<h2>Flume Usage</h2>
-<p>The use of Apache Flume is not only restricted to log data aggregation.</p>
-<p>Since data sources are customizable, Flume can be used to transport massive quantities of event data including but not limited to: - network traffic data - social-media-generated data - email messages</p>
-<p>and pretty much any data source possible</p>
-</section>
-<section id="event-data" class="slide level2">
-<h2>Event Data</h2>
-<div class="columns">
-<div class="fragment column" style="width:50%;">
-<p><strong>High Level Architecture</strong></p>
-<p><img data-src="images/flume-dataflow.png" class="fragment"></p>
-</div><div class="fragment column" style="width:50%;">
-<p><strong>Event</strong> A Flume event is defined as a unit of data flow having a byte payload and an optional set of string attributes</p>
-<p><img data-src="images/flume-event.png" class="fragment"></p>
-</div></div>
-</section>
-<section id="components" class="slide level2">
-<h2>Components</h2>
-</section>
-<section class="slide level2">
-
-<h3 id="source">Source</h3>
-<div class="columns">
-<div class="fragment column" style="width:50%;">
-<ul>
-<li class="fragment">A Flume source consumes events delivered to it by an external source like a web server.</li>
-<li class="fragment">The external source sends events to Flume in a format that is recognized by the target Flume source.</li>
-<li class="fragment">Sources can be&nbsp;pollable&nbsp;or&nbsp;event driven</li>
-</ul>
-</div><div class="fragment column" style="width:50%;">
-<p><img data-src="images/flume-source.png"></p>
 </div></div>
 </section>
 <section class="slide level2">
 
-<h3 id="channel">Channel</h3>
+<h3 id="async-interaction-model-example">Async interaction model example</h3>
 <div class="columns">
 <div class="fragment column" style="width:50%;">
-<ul>
-<li class="fragment"><p>When a Flume source receives an event, it stores it into one or more channels.</p></li>
-<li class="fragment"><p>The channel is a passive store that keeps the event until it’s consumed by a Flume sink</p></li>
-<li class="fragment"><p>A channel is a conduit for events between a source and a sink. Channels also dictate the&nbsp;durability&nbsp;of event delivery between a source and a sink.</p></li>
-</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/207px-Google_Voice_icon.png"></p>
+<figcaption>Traditional call</figcaption>
+</figure>
+</div>
 </div><div class="fragment column" style="width:50%;">
-<p>Coundit image here</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/messaggi-vocali-whatsapp.jpg"></p>
+<figcaption>Voice Message</figcaption>
+</figure>
+</div>
 </div></div>
 </section>
 <section class="slide level2">
 
-<h3 id="sink">Sink</h3>
-<div class="columns">
-<div class="fragment column" style="width:50%;">
-<p>A sink is the counterpart to the source in that it is a destination for data in Flume.</p>
-<p>Some of the builtin sinks that are included with Flume are</p>
-<ul>
-<li class="fragment"><p>the Hadoop Distributed File System sink which writes events to HDFS in various ways</p></li>
-<li class="fragment"><p>the logger sink which simply logs all events received</p></li>
-<li class="fragment"><p>the null sink which is Flume’s version of&nbsp;/dev/null</p></li>
-</ul>
-</div><div class="fragment column" style="width:50%;">
-<p><img data-src="images/nemo.gif"></p>
-</div></div>
+<h3 id="blocking-async">Blocking async :)</h3>
+<p><img data-src="images/vocale10min.jpg"> <a href="https://www.facebook.com/BoomFriendzoned/posts/grazie-a-francesco-gottuso/1114123052108547/">Source</a></p>
 </section>
-<section id="agent" class="slide level2 scrollable">
-<h2>Agent</h2>
+<section id="advantages" class="slide level2">
+<h2>Advantages</h2>
+<p>https://en.wikipedia.org/wiki/Message-oriented_middleware#Advantages</p>
+</section>
+<section class="slide level2 scrollable">
+
+<h3 id="asynchronicity">Asynchronicity</h3>
 <div class="columns">
 <div class="fragment column" style="width:50%;">
-<ul>
-<li class="fragment">A Flume agent puts together the components to be connected:</li>
-</ul>
 <ol type="1">
-<li class="fragment">source</li>
-<li class="fragment">channel</li>
-<li class="fragment">sink</li>
+<li class="fragment">A client makes an API call to send a message to a destination managed by the <strong>provider</strong>.</li>
+<li class="fragment">The call invokes <strong>provider services</strong> to route and deliver the message.</li>
+<li class="fragment">Once it has sent the message, the client can continue to do other work, <strong>confident</strong> that the provider retains the message until a receiving client retrieves it.</li>
 </ol>
-<ul>
-<li class="fragment">Components are named and configured for each channel</li>
-<li class="fragment">Multiple agent can be run at the same time in the same process</li>
-</ul>
 </div><div class="fragment column" style="width:50%;">
-<p><img data-src="images/flume-agent.png"></p>
+<p><img data-src="images/async-pray.jpg"></p>
 </div></div>
 </section>
 <section class="slide level2">
 
-<h3 id="agent-configuration">Agent Configuration</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource properties number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a># example.conf: A single-node Flume configuration</span>
-<span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a># Name the components on this agent</span>
-<span id="cb1-4"><a href=""></a>a1.sources = r1</span>
-<span id="cb1-5"><a href=""></a>a1.sinks = k1</span>
-<span id="cb1-6"><a href=""></a>a1.channels = c1</span>
-<span id="cb1-7"><a href=""></a></span>
-<span id="cb1-8"><a href=""></a># Describe/configure the source</span>
-<span id="cb1-9"><a href=""></a>a1.sources.r1.type = netcat</span>
-<span id="cb1-10"><a href=""></a>a1.sources.r1.bind = localhost</span>
-<span id="cb1-11"><a href=""></a>a1.sources.r1.port = 44444</span>
-<span id="cb1-12"><a href=""></a></span>
-<span id="cb1-13"><a href=""></a># Describe the sink</span>
-<span id="cb1-14"><a href=""></a>a1.sinks.k1.type = logger</span>
-<span id="cb1-15"><a href=""></a></span>
-<span id="cb1-16"><a href=""></a># Use a channel which buffers events in memory</span>
-<span id="cb1-17"><a href=""></a>a1.channels.c1.type = memory</span>
-<span id="cb1-18"><a href=""></a>a1.channels.c1.capacity = 1000</span>
-<span id="cb1-19"><a href=""></a>a1.channels.c1.transactionCapacity = 100</span>
-<span id="cb1-20"><a href=""></a></span>
-<span id="cb1-21"><a href=""></a># Bind the source and sink to the channel</span>
-<span id="cb1-22"><a href=""></a>a1.sources.r1.channels = c1</span>
-<span id="cb1-23"><a href=""></a>a1.sinks.k1.channel = c1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
+<h3 id="loosely-coupled">Loosely Coupled</h3>
+<p>The message-based model, coupled with the mediation of the provider, makes it possible to create a system of loosely coupled components</p>
+
+<img data-src="images/coupling-sketches-cropped-1.png" class="r-scretch r-stretch"></section>
 <section class="slide level2">
 
-</section></section>
-<section>
-<section id="running-flume-using-docker" class="title-slide slide level1 center">
-<h1>Running Flume using Docker</h1>
-
-</section>
-<section id="dockerfile" class="slide level2">
-<h2>Dockerfile</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource dockerfile number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb2-1"><a href=""></a><span class="kw">FROM</span> openjdk:8-alpine</span>
-<span id="cb2-2"><a href=""></a><span class="kw">LABEL</span> mantainer=<span class="st">"Salvo Nicotra"</span></span>
-<span id="cb2-3"><a href=""></a><span class="kw">ENV</span> FLUME_VERSION=<span class="st">"1.11.0"</span></span>
-<span id="cb2-4"><a href=""></a><span class="kw">ENV</span> PATH=/opt/flume/bin:$PATH</span>
-<span id="cb2-5"><a href=""></a><span class="kw">ENV</span> HADOOP_VERSION=2.10.1</span>
-<span id="cb2-6"><a href=""></a><span class="kw">ENV</span> HADOOP_HOME=/opt/flume/lib/hadoop-$HADOOP_VERSION</span>
-<span id="cb2-7"><a href=""></a></span>
-<span id="cb2-8"><a href=""></a><span class="kw">RUN</span> <span class="ex">apk</span> update <span class="kw">&amp;&amp;</span> <span class="ex">apk</span> add bash</span>
-<span id="cb2-9"><a href=""></a></span>
-<span id="cb2-10"><a href=""></a><span class="kw">ADD</span> pkg/apache-flume-${FLUME_VERSION}-bin.tar.gz /opt/</span>
-<span id="cb2-11"><a href=""></a></span>
-<span id="cb2-12"><a href=""></a><span class="co"># Create sym link</span></span>
-<span id="cb2-13"><a href=""></a><span class="kw">RUN</span> <span class="fu">ln</span> <span class="at">-s</span> /opt/apache-flume-<span class="va">${FLUME_VERSION}</span>-bin /opt/flume</span>
-<span id="cb2-14"><a href=""></a></span>
-<span id="cb2-15"><a href=""></a><span class="kw">ADD</span> pkg/hadoop-$HADOOP_VERSION.tar.gz /opt/flume/lib/</span>
-<span id="cb2-16"><a href=""></a></span>
-<span id="cb2-17"><a href=""></a><span class="kw">RUN</span> <span class="fu">mkdir</span> /var/log/netcat</span>
-<span id="cb2-18"><a href=""></a><span class="kw">ADD</span> start-flume.sh /opt/flume/bin/start-flume</span>
-<span id="cb2-19"><a href=""></a><span class="co"># Copy All conf here</span></span>
-<span id="cb2-20"><a href=""></a><span class="kw">ADD</span> conf/* /opt/flume/conf/</span>
-<span id="cb2-21"><a href=""></a></span>
-<span id="cb2-22"><a href=""></a><span class="kw">EXPOSE</span> 44444</span>
-<span id="cb2-23"><a href=""></a></span>
-<span id="cb2-24"><a href=""></a><span class="kw">ENTRYPOINT</span> [ <span class="st">"start-flume"</span> ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="wrapper-entry-point" class="slide level2">
-<h2>Wrapper Entry Point</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href=""></a><span class="co">#!/bin/bash</span></span>
-<span id="cb3-2"><a href=""></a><span class="bu">set</span> <span class="at">-v</span></span>
-<span id="cb3-3"><a href=""></a><span class="va">FLUME_CONF_DIR</span><span class="op">=</span>/opt/flume/conf</span>
-<span id="cb3-4"><a href=""></a><span class="va">FLUME_AGENT_NAME</span><span class="op">=</span>a1 </span>
-<span id="cb3-5"><a href=""></a></span>
-<span id="cb3-6"><a href=""></a><span class="kw">[[</span> <span class="ot">-d</span> <span class="st">"</span><span class="va">${FLUME_CONF_DIR}</span><span class="st">"</span>  <span class="kw">]]</span>  <span class="kw">||</span> <span class="kw">{</span> <span class="bu">echo</span> <span class="st">"Flume config dir not mounted in /opt/flume-config"</span><span class="kw">;</span>  <span class="bu">exit</span> 1<span class="kw">;</span> <span class="kw">}</span></span>
-<span id="cb3-7"><a href=""></a><span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">${FLUME_AGENT_NAME}</span><span class="st">"</span> <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="kw">{</span> <span class="bu">echo</span> <span class="st">"FLUME_AGENT_NAME required"</span><span class="kw">;</span> <span class="bu">exit</span> 1<span class="kw">;</span> <span class="kw">}</span></span>
-<span id="cb3-8"><a href=""></a></span>
-<span id="cb3-9"><a href=""></a><span class="bu">echo</span> <span class="st">"Starting flume agent : </span><span class="va">${FLUME_AGENT_NAME}</span><span class="st">"</span></span>
-<span id="cb3-10"><a href=""></a></span>
-<span id="cb3-11"><a href=""></a><span class="va">COMMAND</span><span class="op">=</span><span class="st">"flume-ng agent </span><span class="dt">\</span></span>
-<span id="cb3-12"><a href=""></a><span class="st">  -c </span><span class="va">${FLUME_CONF_DIR}</span><span class="st"> </span><span class="dt">\</span></span>
-<span id="cb3-13"><a href=""></a><span class="st">  -f </span><span class="va">${FLUME_CONF_DIR}</span><span class="st">/</span><span class="va">${FLUME_CONF_FILE}</span><span class="dt">\</span></span>
-<span id="cb3-14"><a href=""></a><span class="st">  -n </span><span class="va">${FLUME_AGENT_NAME}</span><span class="st"> </span><span class="dt">\</span></span>
-<span id="cb3-15"><a href=""></a><span class="st">  -Dflume.root.logger=INFO,console</span></span>
-<span id="cb3-16"><a href=""></a><span class="st">  -Dorg.apache.flume.log.printconfig=true </span></span>
-<span id="cb3-17"><a href=""></a><span class="st">  -Dorg.apache.flume.log.rawdata=true</span></span>
-<span id="cb3-18"><a href=""></a><span class="st">  "</span></span>
-<span id="cb3-19"><a href=""></a></span>
-<span id="cb3-20"><a href=""></a><span class="va">${COMMAND}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="flume-hello-world" class="title-slide slide level1 center">
-<h1>Flume Hello World</h1>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href=""></a><span class="co"># Only once</span></span>
-<span id="cb4-2"><a href=""></a><span class="ex">docker</span> network create <span class="at">--subnet</span><span class="op">=</span>10.0.100.0/24 tap</span>
-<span id="cb4-3"><a href=""></a><span class="co"># Build</span></span>
-<span id="cb4-4"><a href=""></a><span class="ex">docker</span> build flume/ <span class="at">--tag</span> tap:flume</span>
-<span id="cb4-5"><a href=""></a><span class="co"># Run</span></span>
-<span id="cb4-6"><a href=""></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">--name</span> flumehw <span class="at">--network</span> tap <span class="at">--ip</span> 10.0.100.10 <span class="at">-p</span> 44444:44444  <span class="at">-e</span> FLUME_CONF_FILE=netcatExample.conf tap:flume</span>
-<span id="cb4-7"><a href=""></a><span class="co"># Get flume logs</span></span>
-<span id="cb4-8"><a href=""></a><span class="ex">docker</span> exec <span class="at">-it</span> flumehw tail <span class="at">-f</span> flume.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="hadoop-demo" class="title-slide slide level1 center">
-<h1>Hadoop Demo</h1>
-
-</section>
-<section id="hdfs" class="slide level2">
-<h2>HDFS</h2>
+<h3 id="routing">Routing</h3>
 <div class="columns">
 <div class="fragment column" style="width:50%;">
 <ul>
-<li class="fragment"><p>HDFS is the primary distributed storage used by Hadoop applications. A HDFS cluster primarily consists of a NameNode that manages the file system metadata and DataNodes that store the actual data.</p></li>
-<li class="fragment"><p>The HDFS architecture diagram depicts basic interactions among NameNode, the DataNodes, and the clients. Clients contact NameNode for file metadata or file modifications and perform actual file I/O directly with the DataNodes.</p></li>
+<li class="fragment">Many message-oriented middleware implementations depend on a message queue system</li>
+<li class="fragment">Some implementations permit routing logic to be provided by the messaging layer itself, while others depend on client applications to provide routing information or allow for a mix of both paradigms.</li>
+<li class="fragment">Some implementations make use of broadcast or multicast distribution paradigms.</li>
 </ul>
 </div><div class="fragment column" style="width:50%;">
-<p><img data-src="images/hdfs.gif"></p>
+<p><img data-src="images/message-queue.jpg"></p>
+<p><a href="https://www.slideshare.net/Bozho/overview-of-message-queues" class="uri">https://www.slideshare.net/Bozho/overview-of-message-queues</a></p>
 </div></div>
 </section>
-<section id="hadoop-in-docker" class="slide level2">
-<h2>Hadoop in Docker</h2>
-<p><a href="https://github.com/big-data-europe/docker-hadoop" class="uri">https://github.com/big-data-europe/docker-hadoop</a></p>
-<p>Last update 4 years ago…</p>
-
-<img data-src="https://i.imgflip.com/8l9zv8.jpg" class="r-stretch"></section>
 <section class="slide level2">
 
-<h3 id="lets-build-a-tap-one">Let’s build a TAP one</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href=""></a><span class="ex">docker</span> build hadoop <span class="at">--tag</span> tap:hadoop </span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a><span class="ex">docker</span> run <span class="at">--name</span> namenode <span class="at">--hostname</span> namenode <span class="at">-it</span> <span class="at">--rm</span> <span class="at">--network</span> tap <span class="at">-p</span> 9870:9870  tap:hadoop /bin/bash <span class="at">-c</span> <span class="st">"hdfs namenode -format &amp;&amp; hdfs namenode -fs hdfs://namenode:9000"</span></span>
-<span id="cb5-4"><a href=""></a></span>
-<span id="cb5-5"><a href=""></a><span class="ex">docker</span> run <span class="at">--name</span> datanode <span class="at">--hostname</span> datanode <span class="at">-it</span> <span class="at">--rm</span> <span class="at">--network</span> tap  tap:hadoop /bin/bash <span class="at">-c</span> <span class="st">"hdfs datanode -fs hdfs://namenode:9000"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="transformation">Transformation</h3>
+<div class="columns">
+<div class="fragment column" style="width:50%;">
+<ul>
+<li class="fragment">In a message-based middleware system, the message received at the destination need <em>not be identical</em> to the message originally sent.</li>
+<li class="fragment">In conjunction with the routing and broadcast/multicast facilities, one application can send a message in its own native format, and two or more other applications may each receive a copy of the message in their own native format.</li>
+<li class="fragment">Many modern MOM systems provide sophisticated message transformation (or mapping) tools which allow programmers to specify transformation rules applicable to a simple GUI drag-and-drop operation.</li>
+</ul>
+</div><div class="fragment column" style="width:50%;">
+<p><img data-src="images/coolmom.webp"></p>
+<p><a href="https://raymondmeester.medium.com/the-mom-with-a-message-4a85bf14c04b">The MOM with a message</a></p>
+</div></div>
+</section>
+<section id="disadvantages" class="slide level2">
+<h2>Disadvantages</h2>
+</section>
+<section class="slide level2">
+
+<h3 id="less-is-more">Less is more ?</h3>
+<ul>
+<li class="fragment"><p>The primary disadvantage of many message-oriented middleware systems is that they require an extra component in the architecture, the message transfer agent (message broker).</p></li>
+<li class="fragment"><p>As with any system, adding another component can lead to reductions in performance and reliability, and can also make the system as a whole more difficult and expensive to maintain.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="synchronous-may-be-a-need">Synchronous may be a need</h3>
+<div class="columns">
+<div class="fragment column" style="width:50%;">
+<ul>
+<li class="fragment">In addition, many inter-application communications have an intrinsically synchronous aspect, with the sender specifically wanting to wait for a reply to a message before continuing (see real-time computing and near-real-time for extreme cases).</li>
+<li class="fragment">Because message-based communication inherently functions asynchronously, it may not fit well in such situations.</li>
+<li class="fragment">That said, most MOM systems have facilities to group a request and a response as a single pseudo-synchronous transaction.</li>
+<li class="fragment">With a synchronous messaging system, the calling function does not return until the called function has finished its task.</li>
+</ul>
+</div><div class="fragment column" style="width:50%;">
+<p>It applies to humans also</p>
+<p><img data-src="https://www.process.st/wp-content/uploads/2024/02/How-to-Combat-Zoom-Fatigue-Synchronous-vs-Asynchronous-Communication-Rev1-07.png"></p>
+<p>https://www.process.st/synchronous-vs-asynchronous-communication/</p>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="shit-happens">Shit happens</h3>
+<div class="columns">
+<div class="fragment column" style="width:50%;">
+<ul>
+<li class="fragment"><p>In a loosely coupled asynchronous system, the calling client can continue to load work upon the recipient until the resources needed to handle this work are depleted and the called component fails.</p></li>
+<li class="fragment"><p>Of course, these conditions can be minimized or avoided by monitoring performance and adjusting message flow, but this is work that is not needed with a synchronous messaging system.</p></li>
+</ul>
+</div><div class="fragment column" style="width:50%;">
+<p><img data-src="https://i.imgflip.com/8lwdzn.jpg"></p>
+</div></div>
+</section>
+<section id="in-conclusion" class="slide level2">
+<h2>In conclusion</h2>
+<ul>
+<li class="fragment"><p>The important thing is to understand the advantages and liabilities of each kind of system. Each system is appropriate for different kinds of tasks.</p></li>
+<li class="fragment"><p>Sometimes, a combination of the two kinds of systems is required to obtain the desired behavior.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="mom-implementation" class="title-slide slide level1 center">
+<h1>MOM Implementation</h1>
+
+</section>
+<section id="message-broker" class="slide level2">
+<h2>Message Broker</h2>
+<p><a href="https://en.wikipedia.org/wiki/Message_broker" class="uri">https://en.wikipedia.org/wiki/Message_broker</a></p>
+<div class="columns">
+<div class="fragment column" style="width:50%;">
+<ul>
+<li class="fragment"><p>A message broker (also known as an integration broker or interface engine) is an intermediary computer program module that translates a message from the formal messaging protocol of the sender to the formal messaging protocol of the receiver.</p></li>
+<li class="fragment"><p>Message brokers are elements in telecommunication or computer networks where software applications communicate by exchanging formally-defined messages</p></li>
+</ul>
+</div><div class="fragment column" style="width:50%;">
+<p><img data-src="images/message-broker.png"></p>
+</div></div>
+</section>
+<section id="functionalites-of-a-message-broker" class="slide level2">
+<h2>Functionalites of a message broker</h2>
+<div class="columns">
+<div class="fragment column" style="width:50%;">
+<p><strong>Roles</strong></p>
+<ul>
+<li class="fragment">The primary purpose of a broker is to take incoming messages from applications and perform some action on them.</li>
+<li class="fragment">Message brokers can decouple end-points, meet specific non-functional requirements, and facilitate reuse of intermediary functions.</li>
+<li class="fragment">For example, a message broker may be used to manage a workload queue or message queue for multiple receivers, providing reliable storage, guaranteed message delivery and perhaps transaction management</li>
+</ul>
+</div><div class="fragment column" style="width:50%;">
+<p><strong>Actions</strong></p>
+<ul>
+<li class="fragment">Route messages to one or more destinations</li>
+<li class="fragment">Transform messages to an alternative representation</li>
+<li class="fragment">Perform message aggregation, decomposing messages into multiple messages and sending them to their destination, then recomposing the responses into one message to return to the user</li>
+<li class="fragment">Interact with an external repository to augment a message or store it</li>
+<li class="fragment">Invoke web services to retrieve data</li>
+<li class="fragment">Respond to events or errors</li>
+<li class="fragment">Provide content and topic-based message routing using the publish–subscribe pattern</li>
+</ul>
+</div></div>
+</section>
+<section id="message-broker-models" class="slide level2">
+<h2><a href="https://www.ibm.com/topics/message-brokers">Message Broker Models</a></h2>
+<div class="columns">
+<div class="fragment column" style="width:50%;">
+<p><strong>Point to Point messaging</strong></p>
+<ul>
+<li class="fragment">This is the distribution pattern utilized in message queues with a one-to-one relationship between the message’s sender and receiver.</li>
+<li class="fragment">Each message in the queue is sent to only one recipient and is consumed only once.</li>
+<li class="fragment">Point-to-point messaging is called for when a message must be acted upon only one time.</li>
+<li class="fragment">Example: Payroll and financial transaction processing.</li>
+</ul>
+</div><div class="fragment column" style="width:50%;">
+<p><strong>Publish/subscribe messaging</strong></p>
+<ul>
+<li class="fragment"><p>In this message distribution pattern, often referred to as “pub/sub,” the producer of each message publishes it to a topic, and multiple message consumers subscribe to topics from which they want to receive messages.</p></li>
+<li class="fragment"><p>All messages published to a topic are distributed to all the applications subscribed to it.</p></li>
+<li class="fragment"><p>This is a broadcast-style distribution method, in which there is a one-to-many relationship between the message’s publisher and its consumers.</p></li>
+<li class="fragment"><p>Example: airline send updates about the landing times or delay status of its flights</p></li>
+</ul>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="some-approches">Some approches</h3>
+<div class="columns">
+<div class="fragment column" style="width:50%;">
+<p><strong>API</strong></p>
+<ul>
+<li class="fragment"><a href="https://jcp.org/en/jsr/detail?id=343">JMS</a>: The Java Message Service (JMS) Now <a href="https://jakarta.ee/specifications/messaging/">Jakarta</a></li>
+<li class="fragment"><a href="https://docs.celeryq.dev/en/stable/index.html">Celery</a>: Distributed Task Queue</li>
+</ul>
+</div><div class="fragment column" style="width:50%;">
+<p><strong>Protocols</strong></p>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th>Service</th>
-<th>Address</th>
+<th>Protocol</th>
+<th>Name</th>
+<th>First Released</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Namenode</td>
-<td><a href="http://nifi:9870/dfshealth.html#tab-overview" class="uri">http://nifi:9870/dfshealth.html#tab-overview</a></td>
+<td><a href="https://www.amqp.org/">AMQP</a></td>
+<td>Advanced Message Queuing Protocol</td>
+<td>2003</td>
+</tr>
+<tr class="even">
+<td><a href="https://stomp.github.io/">STOMP</a></td>
+<td>Simple Text Oriented Messaging Protocol</td>
+<td>2005 (tbc)</td>
+</tr>
+<tr class="odd">
+<td><a href="https://mqtt.org/">MQTT</a></td>
+<td>Message Queuing Telemetry Transport</td>
+<td>1999</td>
+</tr>
+<tr class="even">
+<td><a href="https://xmpp.org/">XMPP</a></td>
+<td>Extensible Messaging and Presence Protocol</td>
+<td>1999</td>
 </tr>
 </tbody>
 </table>
+</div></div>
+</section>
+<section id="list-of-message-broker-software" class="slide level2">
+<h2>List of message broker software</h2>
+<p><a href="https://en.wikipedia.org/wiki/Message_broker" class="uri">https://en.wikipedia.org/wiki/Message_broker</a></p>
+</section>
+<section id="as-a-software" class="slide level2">
+<h2>As a software</h2>
+<div class="columns">
+<div class="fragment column" style="width:50%;">
+<p><strong>Apache</strong></p>
+<ul>
+<li class="fragment"><a href="https://activemq.apache.org/">Apache Active MQ / Artemis</a> (incudes HornetQ, ex JBoss)</li>
+<li class="fragment"><a href="https://camel.apache.org/">Apache Camel</a></li>
+<li class="fragment"><a href="https://kafka.apache.org/">Apache Kafka</a></li>
+<li class="fragment"><a href="https://qpid.apache.org/">Apache Qpid</a></li>
+<li class="fragment"><a href="https://thrift.apache.org/">Apache Thrift</a></li>
+<li class="fragment"><a href="https://pulsar.apache.org/">Apache Pulsar</a></li>
+</ul>
+</div><div class="fragment column" style="width:50%;">
+<p><strong>Rest of the world</strong></p>
+<ul>
+<li class="fragment"><a href="https://www.rabbitmq.com/">RabbitMQ</a></li>
+<li class="fragment"><a href="https://mosquitto.org/">Eclipse Mosquitto</a></li>
+<li class="fragment"><a href="https://redis.io/">Redis</a></li>
+</ul>
+</div></div>
+</section>
+<section id="as-a-service" class="slide level2">
+<h2>As a service</h2>
+<div class="columns">
+<div class="fragment column" style="width:50%;">
+<p><strong>Cloud</strong></p>
+<ul>
+<li class="fragment"><p><a href="https://aws.amazon.com/amazon-mq/">Amazon MQ</a></p></li>
+<li class="fragment"><p><a href="https://aws.amazon.com/it/sqs/">Amazon Simple Queue Service</a></p></li>
+<li class="fragment"><p><a href="https://aws.amazon.com/it/sns/">Amazon Simple Notification Service</a></p></li>
+<li class="fragment"><p><a href="https://aws.amazon.com/it/msk/">Amazon Managed Streaming for Apache Kafka</a></p></li>
+<li class="fragment"><p><a href="https://cloud.google.com/pubsub/docs">Cloud Pub/Sub</a></p></li>
+<li class="fragment"><p><a href="https://azure.microsoft.com/en-us/products/service-bus">Azure Service Bus</a></p></li>
+</ul>
+</div><div class="fragment column" style="width:50%;">
+<p><strong>Vendors</strong></p>
+<ul>
+<li class="fragment"><a href="https://www.ibm.com/products/mq">IBM MQ</a></li>
+<li class="fragment"><a href="https://www.hivemq.com/">HiveMQ</a></li>
+<li class="fragment"><a href="https://www.confluent.io/">Confluent</a></li>
+</ul>
+</div></div>
+</section>
+<section id="without-message-broker" class="slide level2">
+<h2>Without Message Broker</h2>
+<ul>
+<li class="fragment"><a href="http://wiki.zeromq.org/whitepapers:brokerless">0MQ</a> (used by <a href="https://jupyter-client.readthedocs.io/en/stable/messaging.htm">Jupyter</a>)</li>
+</ul>
 </section>
 <section class="slide level2">
 
-<h3 id="configure-flume">Configure Flume</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource properties number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>a1.channels = c1</span>
-<span id="cb6-2"><a href=""></a>a1.sinks = k1</span>
-<span id="cb6-3"><a href=""></a>a1.sinks.k1.type = hdfs</span>
-<span id="cb6-4"><a href=""></a>a1.sinks.k1.channel = c1</span>
-<span id="cb6-5"><a href=""></a>a1.sinks.k1.hdfs.path = hdfs://namenode:9000/flume/events/%y-%m-%d/%H%M/%S</span>
-<span id="cb6-6"><a href=""></a>a1.sinks.k1.hdfs.filePrefix = events-</span>
-<span id="cb6-7"><a href=""></a>a1.sinks.k1.hdfs.round = true</span>
-<span id="cb6-8"><a href=""></a>a1.sinks.k1.hdfs.roundValue = 10</span>
-<span id="cb6-9"><a href=""></a>a1.sinks.k1.hdfs.roundUnit = minute</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="from-messages-to-events" class="title-slide slide level1 center" data-background-color="black" data-background-image="images/fromMessagesTo Events.png" data-background-size="100%" data-background-opacity="0.5">
+<h1>From Messages to Events</h1>
+
+</section>
+<section id="data-stream" class="slide level2">
+<h2>Data Stream</h2>
+<p><a href="https://www.researchgate.net/publication/326508370_Definition_of_Data_Streams" class="uri">https://www.researchgate.net/publication/326508370_Definition_of_Data_Streams</a></p>
+<ul>
+<li class="fragment">A data stream is a countably inﬁnite sequence of elements.</li>
+<li class="fragment">Different models of data streams exist that take different approaches with respect to the mutability of the stream and to the structure of stream elements</li>
+<li class="fragment">Stream processing refers to analyzing data streams on-the-ﬂy to produce new results as new input data becomes available.</li>
+<li class="fragment">Time is a central concept in stream processing: in almost all models of streams, each stream element is associated with one or more timestamps from a given time domain that might indicate,for instance, when the element was generated,the validity of its content, or when it became available for processing.</li>
+</ul>
+</section>
+<section id="stream-processing" class="slide level2">
+<h2>Stream Processing</h2>
+<p><a href="https://medium.com/stream-processing/what-is-stream-processing-1eadfca11b97" class="uri">https://medium.com/stream-processing/what-is-stream-processing-1eadfca11b97</a></p>
+<ul>
+<li class="fragment">Stream Processing is a Big data technology.</li>
+<li class="fragment">It is used to query continuous data stream and detect conditions, quickly, within a small time period from the time of receiving the data.</li>
+<li class="fragment">The detection time period varies from few milliseconds to minutes.</li>
+<li class="fragment">For example, with stream processing, you can receive an alert when the temperature has reached the freezing point, querying data streams coming from a temperature sensor.</li>
+<li class="fragment">It is also called by many names: real-time analytics, streaming analytics, Complex Event Processing, real-time streaming analytics, and event processing. Although some terms historically had differences, now tools (frameworks) have converged under term stream processing.</li>
+</ul>
 </section>
 <section class="slide level2">
 
-<h3 id="demo-netcat---hdfs">Demo Netcat - Hdfs</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href=""></a></span>
-<span id="cb7-2"><a href=""></a><span class="co"># Create /flume in hdfs</span></span>
-<span id="cb7-3"><a href=""></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">--network</span> tap <span class="at">-p</span> 44444:44444 <span class="at">-it</span> <span class="at">-e</span> FLUME_CONF_FILE=netcatHdfs.conf tap:flume</span>
-<span id="cb7-4"><a href=""></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="data-streaming-software" class="title-slide slide level1 center">
+<h1>Data Streaming Software</h1>
+<p>Let’s give a look to <a href="https://www.gartner.com/reviews/market/event-stream-processing" class="uri">https://www.gartner.com/reviews/market/event-stream-processing</a></p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="stream-processing-vs-mom" class="title-slide slide level1 center">
+<h1>Stream Processing vs MOM</h1>
+<p><a href="images/momvsstream.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="images/momvsstream.svg"></a></p>
+</section>
+<section id="aws" class="slide level2">
+<h2>AWS</h2>
+</section>
+<section class="slide level2">
+
+<h3 id="sqs">SQS</h3>
+<div class="columns">
+<div class="fragment column" style="width:50%;">
+<ul>
+<li class="fragment"><p>Amazon SQS offers a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. It moves data between distributed application components and helps you decouple these components.</p></li>
+<li class="fragment"><p>Amazon SQS provides common middleware constructs such as dead-letter queues and poison-pill management. It also provides a generic web services API and can be accessed by any programming language that the AWS SDK supports.</p></li>
+<li class="fragment"><p>Amazon SQS supports both standard and FIFO queues.</p></li>
+</ul>
+</div><div class="fragment column" style="width:50%;">
+<p><a href="images/aws-sqs.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="images/aws-sqs.png"></a></p>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="kinesis">Kinesis</h3>
+<div class="columns">
+<div class="fragment column" style="width:50%;">
+<ul>
+<li class="fragment">Amazon Kinesis Streams allows real-time processing of streaming big data and the ability to read and replay records to multiple Amazon Kinesis Applications.</li>
+<li class="fragment">The Amazon Kinesis Client Library (KCL) delivers all records for a given partition key to the same record processor, making it easier to build multiple applications that read from the same Amazon Kinesis stream (for example, to perform counting, aggregation, and filtering).</li>
+</ul>
+</div><div class="fragment column" style="width:50%;">
+<p><a href="https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2022/11/16/Figure-1.-Building-event-driven-architecture-with-IoT-sensor-data.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2022/11/16/Figure-1.-Building-event-driven-architecture-with-IoT-sensor-data.png"></a></p>
+</div></div>
+</section>
+<section id="kafka" class="slide level2">
+<h2>Kafka</h2>
+<p>can do both https://itnext.io/is-kafka-a-message-queue-or-a-stream-processing-platform-7decc3cf1cf</p>
+<p><a href="https://miro.medium.com/max/786/1*6iWJA-Pk0t20_h7ry_j5IQ.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="https://miro.medium.com/max/786/1*6iWJA-Pk0t20_h7ry_j5IQ.png" class="r-scratch"></a></p>
+</section>
+<section id="research-is-on-going" class="slide level2">
+<h2>Research is on going</h2>
+</section>
+<section id="a-survey-on-the-evolution-of-stream-processing-systems" class="slide level2">
+<h2>A Survey on the Evolution of Stream Processing Systems</h2>
+<p>Marios Fragkoulis, Paris Carbone, Vasiliki Kalavri, Asterios Katsifodimos</p>
+<p>Preprint, 3 Aug 2020 Published 2023 https://link.springer.com/article/10.1007/s00778-023-00819-8</p>
+<p>Stream processing has been an active research field for more than 20 years, but it is now witnessing its prime time due to recent successful efforts by the research community and numerous worldwide open-source communities. This survey provides a comprehensive overview of fundamental aspects of stream processing systems and their evolution in the functional areas of out-of-order data management, state management, fault tolerance, high availability, load management, elasticity, and reconfiguration. We review noteworthy past research findings, outline the similarities and differences between early (’00-’10) and modern (’11-’18) streaming systems, and discuss recent trends and open problems.</p>
+<p><a href="images/overview-evolution-stream-processing-fragkoulis-2020.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="images/overview-evolution-stream-processing-fragkoulis-2020.png"></a></p>
+</section>
+<section id="event-driven-architectures-done-right-apache-kafka" class="slide level2">
+<h2>Event-Driven Architectures Done Right, Apache Kafka</h2>
+<p><a href="https://www.youtube.com/watch?v=A_mstzRGfIE">▶<img data-src="http://img.youtube.com/vi/A_mstzRGfIE/0.jpg"></a></p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
@@ -700,20 +783,20 @@ Salvo Nicotra
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="Apache Flume_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="Data Streaming_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="Apache Flume_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="Apache Flume_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="Apache Flume_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="Apache Flume_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="Apache Flume_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="Apache Flume_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="Data Streaming_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="Data Streaming_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="Data Streaming_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="Data Streaming_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="Data Streaming_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="Data Streaming_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="Apache Flume_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="Apache Flume_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="Apache Flume_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="Apache Flume_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="Data Streaming_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="Data Streaming_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="Data Streaming_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="Data Streaming_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -874,7 +957,7 @@ Salvo Nicotra
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1280,
 
         height: 700,
 
@@ -1098,6 +1181,38 @@ Salvo Nicotra
     <div class="custom-footer">
       *** Technologies for advanced programming (TAP) - 2024/2025 ***
     </div>
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>
