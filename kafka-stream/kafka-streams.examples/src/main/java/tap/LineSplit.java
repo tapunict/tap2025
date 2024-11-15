@@ -44,7 +44,7 @@ public class LineSplit {
 
         final StreamsBuilder builder = new StreamsBuilder();
 
-        builder.<String, String>stream("streams-plaintext-input")
+        builder.<String, String>stream("streams2-plaintext-input")
             .flatMapValues(value -> Arrays.asList(value.split("\\W+")))
             .to("streams-linesplit-output");
 
