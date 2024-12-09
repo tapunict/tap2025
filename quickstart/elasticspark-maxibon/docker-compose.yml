@@ -1,0 +1,37 @@
+version: '2'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+    environment:
+      - discovery.type=single-node 
+      - xpack.security.enabled=false
+    mem_limit: 1 GB
+  kibana:
+    hostname: kibana
+    image: docker.elastic.co/kibana/kibana:8.13.4
+    ports:
+      - 5601:5601
+    volumes:
+      - ../../kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+    depends_on:
+      - elasticsearch
+  spark1:
+    image: tap:spark
+    hostname: spark1
+    container_name: spark1
+    volumes:
+      - ../../spark/code/:/opt/tap/
+    command: > 
+      /opt/spark/bin/spark-submit --conf spark.driver.extraJavaOptions="-Divy.cache.dir=/tmp -Divy.home=/tmp" --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1,org.elasticsearch:elasticsearch-spark-30_2.12:8.13.4  /opt/tap/ratetoes.py spark1
+    depends_on:
+      - elasticsearch
+  spark2:
+    image: tap:spark
+    hostname: spark2
+    container_name: spark2
+    volumes:
+      - ../../spark/code/:/opt/tap/
+    command: > 
+      /opt/spark/bin/spark-submit --conf spark.driver.extraJavaOptions="-Divy.cache.dir=/tmp -Divy.home=/tmp" --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1,org.elasticsearch:elasticsearch-spark-30_2.12:8.13.4  /opt/tap/ratetoes.py spark2
+    depends_on:
+      - elasticsearch
